@@ -141,6 +141,11 @@ void setup() {
      soldierX[i] = floor(random(0,8));
      soldierY[i] = floor(random(0,4));
    }
+   
+   for(int i=0;i<24;i++){
+     b[i] = 0;
+     d[i] = 0;
+   }
 
 }
 
@@ -299,7 +304,6 @@ void draw() {
       for(int i = 1 ; i < 24; i++){
      
       image ( soilEmpty, 80*b[i] ,80*i );
-      println(b[i]);
       soilHealth[b[i]][i] = 0 ;
       image ( soilEmpty, 80*d[i] ,80*i );
       soilHealth[d[i]][i] = 0 ;
