@@ -130,11 +130,17 @@ void setup() {
   
   cabbageX = new float [6];
   cabbageY = new float [6];
+  soldierX = new float [6];
+  soldierY = new float [6];
   
    for(int i=0;i<6;i++){
       cabbageX[i] = floor(random(0,8));
       cabbageY[i] = floor(random(0,4));
       }
+   for(int i=0;i<6;i++){
+     soldierX[i] = floor(random(0,8));
+     soldierY[i] = floor(random(0,4));
+   }
 
 }
 
@@ -326,6 +332,10 @@ void draw() {
       image(cabbage, 80*cabbageX[i] , 320*i + 80*cabbageY[i]);
     }
     
+    for(int i=0;i<6;i++){
+      image(soldier, 80*soldierX[i] , 320*i + 80*soldierY[i]);
+    }
+    
     // > Remember to check if playerHealth is smaller than PLAYER_MAX_HEALTH!
 
     // Groundhog
@@ -436,13 +446,18 @@ void draw() {
         break;
 
         case DOWN:
+      
         groundhogDisplay = groundhogDown;
+          
         if(playerMoveTimer == 0){
+            w+=80;
+          if( w>1600)w=1600;
           q++;
-          w+=80;
           playerRow++;
+         
           playerY = SOIL_SIZE * playerRow;
         }else{
+         
           playerY = (1f - float(playerMoveTimer) / playerMoveDuration + playerRow) * SOIL_SIZE;
         }
         break;
