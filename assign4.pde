@@ -110,7 +110,7 @@ void setup() {
        c = floor(random(0, 2));
        if(c == 0){
          hole1[a] = floor(random(0, 8));
-         hole2[a] = b[a];
+         hole2[a] = hole1[a];
        }
        else{
          hole2[a] = floor(random(0, 8));
@@ -298,9 +298,9 @@ void draw() {
       //soilEmpty
       for(int i = 1 ; i < 24; i++){
      
-      image ( soilEmpty, 80*b[i] ,80*i );
+      image ( soilEmpty, 80*hole1[i] ,80*i );
       soilHealth[hole1[i]][i] = 0 ;
-      image ( soilEmpty, 80*d[i] ,80*i );
+      image ( soilEmpty, 80*hole2[i] ,80*i );
       soilHealth[hole2[i]][i] = 0 ;
     }
     
